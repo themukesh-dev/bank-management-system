@@ -9,9 +9,9 @@ Building a simple Bank Management System using Java to practise Core Java and OO
 - ✅ Create a new account
 - ✅ Generate a account number
 - ✅ Show account details
-- [ ] Search account
-- [ ] Update account details
-- [ ] Close an account
+- ✅ Search account
+- ✅ Update account details
+- ✅ Close an account
 
 ### 2. Banking Operations
 
