@@ -23,8 +23,17 @@ class Main
 
         System.out.println();
         // obj1.DeleteAcc(acc);
-        obj1.findAcc(acc);
+        
         System.out.println();
         d1.DepoMoney(acc);
+
+        System.out.println();
+        d1.DepoMoney(acc);
+
+        System.out.println();
+        d1.Withdraw(acc);
+
+        System.out.println();
+        d1.CheckBal(acc);
     }
 }

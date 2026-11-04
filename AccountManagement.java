@@ -11,6 +11,7 @@ class NewAccount
     long accnum;
     long EnteredAcc;
     int upi;
+    int enterUPI;
     Scanner sc = new Scanner(System.in);
 
     public void CreateAcc()
@@ -48,9 +49,8 @@ class NewAccount
     public void UpdateDetails(ArrayList<NewAccount> acc)
     {
         int choice;
-        System.out.println("------------Update Account Details------------");
-    
-
+            System.out.println("------------Update Account Details------------");
+            findAcc(acc);
             System.out.println("Select the appropriate choice");
             System.out.println("1. Name");
             System.out.println("2. Age");
@@ -90,7 +90,7 @@ class NewAccount
     public void DeleteAcc(ArrayList<NewAccount> acc)
     {
         System.out.println("-----------Delete Account-----------");
-        
+        findAcc(acc);
         for(int i=0; i<acc.size();i++)
         {
             if(EnteredAcc==acc.get(i).accnum)
@@ -124,7 +124,35 @@ class NewAccount
             }
 
     }
+    public void CheckUpi(ArrayList<NewAccount> acc)
+    {
+        System.out.print("Enter UPI id:- ");
+        enterUPI = sc.nextInt();
+        boolean found = false;
+        for(NewAccount a : acc)
+        {
+            if(enterUPI==a.upi)
+            {
+                found = true;
+                break;
+            }
 
+        }
+        if(found == false)
+        {
+            System.out.println("You entered wrong UPI id");
+            for(NewAccount a : acc)
+        {
+            if(enterUPI==a.upi)
+            {
+                found = true;
+                break;
+            }
+        }
+
+    }
+
+}
 }
 
 
