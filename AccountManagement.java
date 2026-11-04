@@ -9,6 +9,8 @@ class NewAccount
     String mob;
     String email;
     long accnum;
+    long EnteredAcc;
+    int upi;
     Scanner sc = new Scanner(System.in);
 
     public void CreateAcc()
@@ -31,6 +33,8 @@ class NewAccount
         System.out.print("Enter your email id:- ");
         this.email = sc.next();
         System.out.println("Your account number is:- "+ accnum);
+        System.out.print("Set UPI Id:- ");
+        this.upi=sc.nextInt();
         System.out.println("-----------------Account Created Successfully-----------------");
      
     }
@@ -38,32 +42,14 @@ class NewAccount
     public void ShowDetails()
     {
         System.out.println("-------------Account Details-------------");
-        System.out.println(acc+" "+ name+" "+age+" "+mob+" "+email+" "+accnum);
+        System.out.println(acc+" "+ name+" "+age+" "+mob+" "+email+" "+accnum + " "+upi);
     }
 
     public void UpdateDetails(ArrayList<NewAccount> acc)
     {
-        long EnteredAcc;
         int choice;
         System.out.println("------------Update Account Details------------");
-        System.out.print("Enter account number:- ");
-        EnteredAcc = sc.nextLong();
-        boolean found = false;
-        
-        for( NewAccount a : acc)
-        {
-            if(EnteredAcc==a.accnum)
-            {
-            System.out.println("Account Found");
-            found = true;
-            break;
-            }
-        }
-            
-            if(found == false)
-            {
-                System.out.println("Account missing");
-            }
+    
 
             System.out.println("Select the appropriate choice");
             System.out.println("1. Name");
@@ -103,26 +89,7 @@ class NewAccount
 
     public void DeleteAcc(ArrayList<NewAccount> acc)
     {
-        long EnteredAcc;
         System.out.println("-----------Delete Account-----------");
-        System.out.print("Enter account number:- ");
-        EnteredAcc = sc.nextLong();
-        boolean found = false;
-        
-        for( NewAccount a : acc)
-        {
-            if(EnteredAcc==a.accnum)
-            {
-            System.out.println("Account Found");
-            found = true;
-            break;
-            }
-        }
-        
-        if(found == false)
-            {
-                System.out.println("Account missing");
-            }
         
         for(int i=0; i<acc.size();i++)
         {
@@ -136,36 +103,29 @@ class NewAccount
         System.out.println("-----------------Account Deleted Successfully-----------------");
     }
 
-}
-
-
-class A
-{
-    public static void main(String args[])
+    public void findAcc(ArrayList<NewAccount> acc)
     {
-        NewAccount obj1 = new NewAccount();
-        
-        obj1.CreateAcc();
-        System.out.println();
-        
-        ArrayList<NewAccount> acc = new ArrayList<NewAccount>();
-        acc.add(obj1);
-        
-        obj1.UpdateDetails(acc);
-        System.out.println();
-
-        for(NewAccount a : acc)
+        System.out.print("Enter account number:- ");
+        EnteredAcc = sc.nextLong();
+        boolean found = false;
+         for( NewAccount a : acc)
         {
-            a.ShowDetails();
+            if(EnteredAcc==a.accnum)
+            {
+            System.out.println("Account Found");
+            found = true;
+            break;
+            }
         }
-
-        System.out.println();
-        obj1.DeleteAcc(acc);
-
-
-        
-
-        
+            
+            if(found == false)
+            {
+                System.out.println("Account missing");
+            }
 
     }
+
 }
+
+
+
