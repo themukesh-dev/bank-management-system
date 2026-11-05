@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 class BankOpp extends NewAccount
 {
-    double bal ;
-    double a;
+    double depo ;
+    double amt;
     double with;
     Scanner sc = new Scanner(System.in);
 
@@ -12,9 +12,9 @@ class BankOpp extends NewAccount
         System.out.println("------------Deposit Money------------");
         findAcc(acc);
         System.out.print("Enter Amount:- ");
-        a = sc.nextDouble();
-        System.out.println(a+ " "+"Deposited");
-        bal = bal + a;
+        amt = sc.nextDouble();
+        System.out.println(amt+ " "+"Deposited");
+        balance = balance + amt;
     }
     public void Withdraw(ArrayList<NewAccount> acc)
     {
@@ -22,29 +22,57 @@ class BankOpp extends NewAccount
         CheckUpi(acc);
         System.out.print("Enter Amount:- ");
         with = sc.nextDouble();
-        if(with>bal)
+        if(with>balance)
         {
             System.out.println("Insufficient balance. Withdrawal cannot be processed.");
         }
         System.out.println(with + " " + "withdrawed");
-        bal = bal - with ;
+        balance = balance - with ;
        
     }
     public void CheckBal(ArrayList<NewAccount> acc)
     {
         System.out.println("------------Check Balance------------");
-        CheckUpi(acc);
-        System.out.println("Available Balance:- " + bal);
+         System.out.print("Enter UPI id:- ");
+        enterUPI = sc.nextInt();
+        boolean found = false;
+        for(NewAccount a : acc)
+        {
+            if(enterUPI==a.upi)
+            {
+                System.out.println("Available Balance:- " + a.balance);
+                found = true;
+                break;
+            }
+
+        }
+        if(found == false)
+        {
+            System.out.println("You entered wrong UPI id");
+            for(NewAccount a : acc)
+        {
+            if(enterUPI==a.upi)
+            {
+                found = true;
+                break;
+            }
+        }
+
+    }
+        
+        
+        
     }
     public void TransferMoney(ArrayList<NewAccount> acc)
     {
+        System.out.println("------------Transfer Money------------");
         findAcc(acc);
         System.out.print("Enter the recipient's account number:-" );
         long RecipAcc = sc.nextLong();
         boolean found = false;
-         for( NewAccount a : acc)
+         for( NewAccount b : acc)
         {
-            if(RecipAcc==a.accnum)
+            if(RecipAcc==b.accnum)
             {
             System.out.println("Account Found");
             found = true;
@@ -57,8 +85,27 @@ class BankOpp extends NewAccount
                 System.out.println("Account missing");
             }
         
-            System.out.println("Enter amount:- ");
-            a = sc.nextDouble();
+            System.out.print("Enter amount:- ");
+            amt = sc.nextDouble();
+        
+            for( NewAccount b : acc)
+            {
+                if(RecipAcc==b.accnum)
+                {
+                System.out.println(amt+" "+"credited to "+b.name);
+                b.balance=b.balance+amt;
+                
+                }
+            }
+            for( NewAccount a : acc)
+            {
+                if(EnteredAcc==a.accnum)
+                {
+                System.out.println(amt + " "+ "debited from "+a.name);
+                a.balance=a.balance-amt;
+                
+                }
+            }
             
         
         

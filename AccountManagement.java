@@ -12,6 +12,7 @@ class NewAccount
     long EnteredAcc;
     int upi;
     int enterUPI;
+    double balance;
     Scanner sc = new Scanner(System.in);
 
     public void CreateAcc()
@@ -36,6 +37,7 @@ class NewAccount
         System.out.println("Your account number is:- "+ accnum);
         System.out.print("Set UPI Id:- ");
         this.upi=sc.nextInt();
+        System.out.println("Current Balance:- "+balance);
         System.out.println("-----------------Account Created Successfully-----------------");
      
     }
@@ -43,7 +45,7 @@ class NewAccount
     public void ShowDetails()
     {
         System.out.println("-------------Account Details-------------");
-        System.out.println(acc+" "+ name+" "+age+" "+mob+" "+email+" "+accnum + " "+upi);
+        System.out.println(acc+" "+ name+" "+age+" "+mob+" "+email+" "+accnum + " "+upi+" "+balance);
     }
 
     public void UpdateDetails(ArrayList<NewAccount> acc)

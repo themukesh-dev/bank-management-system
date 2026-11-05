@@ -17,10 +17,10 @@ Building a simple Bank Management System using Java to practise Core Java and OO
 
 - ✅ Deposit money
 - ✅ Withdraw money
-- [ ] Transfer money
+- ✅ Transfer money
 - ✅ Check account balance
 - ✅ Prevent withdrawal beyond available balance
-- [ ] Show transaction history
+
 
 ### 3. Loan Management
 
