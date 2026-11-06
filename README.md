@@ -31,10 +31,7 @@ Building a simple Bank Management System using Java to practise Core Java and OO
 - [ ] Repay loan
 - [ ] Show remaining loan balance
 
-### 4. Account Types
 
-- [ ] Savings Account
-- [ ] Current Account
 
 ## Tech Stack
 

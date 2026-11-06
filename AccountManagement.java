@@ -26,16 +26,16 @@ class NewAccount
         System.out.print("Select Account Type:- ");
         this.acc = sc.next();
         System.out.println("You are creating a " + acc + " account." );
-        System.out.print("Enter your name:- ");
+        System.out.print("1. Enter your name:- ");
         this.name = sc.next();
-        System.out.print("Enter your age:- ");
+        System.out.print("2. Enter your age:- ");
         this.age = sc.nextInt();
-        System.out.print("Enter your mobile number:- ");
+        System.out.print("3. Enter your mobile number:- ");
         this.mob = sc.next();
-        System.out.print("Enter your email id:- ");
+        System.out.print("4. Enter your email id:- ");
         this.email = sc.next();
         System.out.println("Your account number is:- "+ accnum);
-        System.out.print("Set UPI Id:- ");
+        System.out.print("5. Set UPI Id:- ");
         this.upi=sc.nextInt();
         System.out.println("Current Balance:- "+balance);
         System.out.println("-----------------Account Created Successfully-----------------");
@@ -107,31 +107,38 @@ class NewAccount
 
     public void findAcc(ArrayList<NewAccount> acc)
     {
-        System.out.print("Enter account number:- ");
-        EnteredAcc = sc.nextLong();
+        
         boolean found = false;
-         for( NewAccount a : acc)
+        while(found==false)
+        {
+            System.out.print("Enter account number:- ");
+            EnteredAcc = sc.nextLong();
+            for( NewAccount a : acc )
         {
             if(EnteredAcc==a.accnum)
             {
-            System.out.println("Account Found");
+            System.out.println("Account Exists");
             found = true;
             break;
             }
         }
-            
-            if(found == false)
+        if(found == false)
             {
                 System.out.println("Account missing");
+            
             }
-
+        }
     }
     public void CheckUpi(ArrayList<NewAccount> acc)
     {
         System.out.print("Enter UPI id:- ");
         enterUPI = sc.nextInt();
         boolean found = false;
-        for(NewAccount a : acc)
+        while (found==false) 
+        {
+            System.out.print("Enter UPI id:- ");
+            enterUPI = sc.nextInt();
+            for(NewAccount a : acc)
         {
             if(enterUPI==a.upi)
             {
@@ -143,18 +150,11 @@ class NewAccount
         if(found == false)
         {
             System.out.println("You entered wrong UPI id");
-            for(NewAccount a : acc)
-        {
-            if(enterUPI==a.upi)
-            {
-                found = true;
-                break;
-            }
+    }
         }
+        
 
     }
-
-}
 }
 
 

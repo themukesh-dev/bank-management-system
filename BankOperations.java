@@ -16,6 +16,7 @@ class BankOpp extends NewAccount
         System.out.println(amt+ " "+"Deposited");
         balance = balance + amt;
     }
+
     public void Withdraw(ArrayList<NewAccount> acc)
     {
         System.out.println("------------Withdraw Money------------");
@@ -30,39 +31,19 @@ class BankOpp extends NewAccount
         balance = balance - with ;
        
     }
+
     public void CheckBal(ArrayList<NewAccount> acc)
     {
         System.out.println("------------Check Balance------------");
-         System.out.print("Enter UPI id:- ");
-        enterUPI = sc.nextInt();
-        boolean found = false;
-        for(NewAccount a : acc)
+        CheckUpi(acc);
+        for(NewAccount a:acc)
         {
-            if(enterUPI==a.upi)
-            {
-                System.out.println("Available Balance:- " + a.balance);
-                found = true;
-                break;
-            }
-
+        System.out.println("Available Balance:- " + a.balance);
         }
-        if(found == false)
-        {
-            System.out.println("You entered wrong UPI id");
-            for(NewAccount a : acc)
-        {
-            if(enterUPI==a.upi)
-            {
-                found = true;
-                break;
-            }
-        }
+            
+    
+    }
 
-    }
-        
-        
-        
-    }
     public void TransferMoney(ArrayList<NewAccount> acc)
     {
         System.out.println("------------Transfer Money------------");
@@ -106,11 +87,7 @@ class BankOpp extends NewAccount
                 
                 }
             }
-            
-        
-        
-
-        
     }
 }
+
 
